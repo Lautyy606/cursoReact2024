@@ -4,21 +4,22 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css";
+import { Link, NavLink } from "react-router-dom";
 
-const Menu = () => {
+const NavBar = () => {
   return (
     <>
 
     <h1>INDUMENTARIA GL</h1>
-    <img className="logo" src="./imagen-logo.png" alt="" />
+    <img className="logo" src="./assets/img/imagen-logo.png" alt="" />
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#">Inicio</Navbar.Brand>
+          <NavLink to={'/'}>Inicio</NavLink>
           <Nav className="me-auto">
-            <Nav.Link href="#">Productos</Nav.Link>
-            <Nav.Link href="#">Contacto</Nav.Link>
-            <Nav.Link href="#">Nosotros</Nav.Link>
-            <Nav.Link href="#">Ubicacion</Nav.Link>
+            <NavLink to={'/'}>Productos</NavLink>
+            <NavLink to={'/tienda'}>Tienda</NavLink>
+            <NavLink to={'/'}>Nosotros</NavLink>
+            <NavLink to={'/'}>Contacto</NavLink>
           </Nav>
         </Container>
       </Navbar>
@@ -29,4 +30,4 @@ const Menu = () => {
   );
 }
 
-export default Menu
+export default NavBar

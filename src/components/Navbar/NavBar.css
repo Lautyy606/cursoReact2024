@@ -1,3 +1,7 @@
 .logo {
     height: 20rem;
 }
+
+a {
+    text-decoration: none;
+}

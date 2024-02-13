@@ -1,0 +1,16 @@
+.tarjetas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px;
+}
+
+.catalogo {
+    width: 15rem;
+    height: 15rem;
+    /* margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; */
+}
