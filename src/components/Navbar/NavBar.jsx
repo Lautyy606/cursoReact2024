@@ -16,10 +16,9 @@ const NavBar = () => {
         <Container>
           <NavLink to={'/'}>Inicio</NavLink>
           <Nav className="me-auto">
-            <NavLink to={'/'}>Productos</NavLink>
-            <NavLink to={'/tienda'}>Tienda</NavLink>
-            <NavLink to={'/'}>Nosotros</NavLink>
-            <NavLink to={'/'}>Contacto</NavLink>
+            <NavLink to={'categoria/Remeras'}>Remeras</NavLink>
+            <NavLink to={'categoria/Buzos'}>Buzos</NavLink>
+            <NavLink to={'categoria/Pantalones'}>Pantalones</NavLink>
           </Nav>
         </Container>
       </Navbar>

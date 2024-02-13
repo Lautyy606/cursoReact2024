@@ -3,7 +3,8 @@ import NavBar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import Item from './components/Item';
+import ItemCount from './components/ItemCount';
+
 
 
 const App = () => {
@@ -19,7 +20,13 @@ const App = () => {
 
       <Route path='/' element={<ItemListContainer greeting={"Bienvenidos a Indumentaria GL"}/>}/>
 
-      <Route path='/tienda' element={<ItemDetailContainer id={6}/>}/>
+      <Route path='/producto/:idProducto' element={<ItemDetailContainer/>}/>
+
+      <Route path='/categoria/:productType' element={<ItemListContainer greeting={""}/>}/>
+{/* 
+      <Route path='/categoria/:idBuzos' element={<ItemListContainer/>}/>
+
+      <Route path='/categoria/:idPantalones' element={<ItemListContainer/>}/> */}
 
     </Routes>
     
