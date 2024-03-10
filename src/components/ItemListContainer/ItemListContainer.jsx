@@ -2,8 +2,11 @@ import {useState, useEffect} from "react"
 import "./ItemListContainer.css"
 import ItemList from "../ItemList"
 import { useParams } from "react-router-dom"
+import { db } from "../../firebase/config"
+import { collection,getDocs,query,where } from "firebase/firestore"
 
-const ItemListContainer = ({greeting}) => {
+
+const ItemListContainer = () => {
 
   const [productos,setProductos] = useState([]);
 
@@ -11,24 +14,20 @@ const ItemListContainer = ({greeting}) => {
 
   useEffect(()=>{
 
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/productos.json");
-        const data = await response.json()
+    const misProductos = 
+    productType ?
+    query(collection(db, "producto"),where("categoria","==",productType))
+    :
+    collection(db, "producto")
 
-        if (greeting == "") {
-          const filteredProducts = data.filter((p) => p.categoria == productType)
-          setProductos(filteredProducts)
-        }else{
-          setProductos(data)
-        }
-
-      }catch(error){
-          console.log("Error" + error);
-      }
-    }
-
-    fetchData()
+    getDocs(misProductos)
+    .then((res) => {
+      const nuevosProductos = res.docs.map((doc) => {
+        const data = doc.data()
+        return {id: doc.id,...data}
+      })
+      setProductos(nuevosProductos)
+    })
 
   },[productType])
     
@@ -36,7 +35,7 @@ const ItemListContainer = ({greeting}) => {
     
     <div>
 
-      <h1>{greeting}</h1>
+      <h1>Bienvenidos a Indumentaria GL</h1>
 
       <ItemList productos={productos}/>
 

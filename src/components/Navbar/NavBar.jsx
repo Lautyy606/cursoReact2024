@@ -10,11 +10,13 @@ const NavBar = () => {
   return (
     <>
 
-    <h1>INDUMENTARIA GL</h1>
-    <img className="logo" src="./assets/img/imagen-logo.png" alt="" />
+      <h1>INDUMENTARIA GL</h1>
+      <Link to={'/'}>
+        <img className="logo" src="./assets/img/imagen-logo.png" alt="" />
+      </Link>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <NavLink to={'/'}>Inicio</NavLink>
+          <Navbar.Brand href={'/'}>Inicio</Navbar.Brand>
           <Nav className="me-auto">
             <NavLink to={'categoria/Remeras'}>Remeras</NavLink>
             <NavLink to={'categoria/Buzos'}>Buzos</NavLink>
@@ -23,7 +25,8 @@ const NavBar = () => {
         </Container>
       </Navbar>
 
-      <CartWidget/>
+
+      <CartWidget />
 
     </>
   );
